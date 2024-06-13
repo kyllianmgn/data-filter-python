@@ -11,7 +11,8 @@ def list_files():
     """
     print("\nVeuillez choisir un fichier dans la liste suivante")
     files = os.listdir("./files")
-    print("\n".join(map(str, files)))
+    for index, file in enumerate(files, start=1):
+        print(f'{index} - {file}')
     return files
 
 

@@ -6,7 +6,9 @@ def main():
     while True:
         file_list = list_files()
         choice = input("")
-        if choice in file_list:
+        if (choice.isdigit() and 0 <= int(choice) - 1 < len(file_list)) or choice in file_list:
+            if choice.isdigit():
+                choice = file_list[int(choice) - 1]
             extension = choice.split(".")[-1]
             data = read_csv(choice)
             while choice:
@@ -19,8 +21,7 @@ def main():
                     case "2":
                         match extension:
                             case "csv":
-
-                                save_csv(input("Quelle nom pour le fichier de sortie ?")+".csv", data)
+                                save_csv(input("Quelle nom pour le fichier de sortie ?") + ".csv", data)
                     case _:
                         print("Veuillez choisir un choix dans la liste")
 
