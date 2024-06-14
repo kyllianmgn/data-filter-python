@@ -1,4 +1,5 @@
 import csv
+import os.path
 
 
 def load_csv(file):
@@ -30,7 +31,6 @@ def read_csv(file):
         return list(csv_reader)
 
 
-
 def save_csv(output, data):
     """
     Sauvegarde le contenu du fichier csv
@@ -38,6 +38,8 @@ def save_csv(output, data):
     :param output: Le nom du fichier d'output
     :param data: Les données à écrire dans le fichier
     """
+    if not os.path.isdir("./output"):
+        os.mkdir("./output")
     with open(f'./output/{output}', 'w+', newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerows(data)
