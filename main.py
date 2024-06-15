@@ -1,5 +1,5 @@
 from utils.utils import list_files, list_actions
-from csv_manager.csv_handler import load_csv, print_csv, save_csv, read_csv
+from csv_manager.csv_handler import CSVHandler
 
 
 def main():
@@ -10,18 +10,18 @@ def main():
             if choice.isdigit():
                 choice = file_list[int(choice) - 1]
             extension = choice.split(".")[-1]
-            data = read_csv(choice)
+            file = None
+            match extension:
+                case "csv":
+                    file = CSVHandler(choice)
+            data = file.read()
             while choice:
                 action_choice = list_actions()
                 match action_choice:
                     case "1":
-                        match extension:
-                            case "csv":
-                                print_csv(choice)
+                        file.print()
                     case "2":
-                        match extension:
-                            case "csv":
-                                save_csv(input("Quelle nom pour le fichier de sortie ?") + ".csv", data)
+                        file.save(input("Quelle nom pour le fichier de sortie ?") + ".csv", data)
                     case _:
                         print("Veuillez choisir un choix dans la liste")
 
