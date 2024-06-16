@@ -1,8 +1,9 @@
 import csv
 import os.path
+from file.file_class import File
 
 
-class CSVHandler:
+class CSVHandler(File):
 
     def __init__(self, file):
         self.file = file
