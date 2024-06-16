@@ -33,7 +33,7 @@ def main():
                             print("Données sauvegardées avec succès.")
                         case "back":
                             print("Retour au menu principal.")
-                            break  # Sort de la boucle interne pour revenir au choix du fichier
+                            break
                         case _:
                             print("Veuillez choisir un choix dans la liste ou 'back' pour revenir.")
             elif choice == "exit":
