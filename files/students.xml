@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Students>
+    <Student id="1">
+        <Name>John Doe</Name>
+        <Age>22</Age>
+        <Major>Computer Science</Major>
+    </Student>
+    <Student id="2">
+        <Name>Jane Smith</Name>
+        <Age>20</Age>
+        <Major>Business Administration</Major>
+    </Student>
+    <Student id="3">
+        <Name>Emily Johnson</Name>
+        <Age>21</Age>
+        <Major>Marketing</Major>
+    </Student>
+</Students>

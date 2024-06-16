@@ -1,7 +1,7 @@
 from utils.utils import list_files, list_actions
 from csv_manager.csv_handler import CSVHandler
 from json_manager.json_handler import JSONHandler
-
+from xml_manager.xml_handler import XMLHandler
 
 
 def main():
@@ -20,6 +20,8 @@ def main():
                         file = CSVHandler(choice)
                     case "json":
                         file = JSONHandler(choice)
+                    case "xml":
+                        file = XMLHandler(choice)
                 data = file.read()
                 action_choice = None
                 while action_choice != "back":
