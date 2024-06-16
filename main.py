@@ -1,8 +1,6 @@
 from utils.utils import list_files, list_actions
-from csv_manager.csv_handler import load_csv, print_csv, save_csv, read_csv
+from csv_manager.csv_handler import CSVHandler
 from json_manager.json_handler import load_json_file, save_json_file
-
-
 
 def main():
     while True:
@@ -12,30 +10,19 @@ def main():
             if choice.isdigit():
                 choice = file_list[int(choice) - 1]
             extension = choice.split(".")[-1]
-            if extension == "csv":
-                data = read_csv(choice)
-            elif extension == "json":
-                data = load_json_file(f"./files/{choice}")
-            else:
-                print("Extension de fichier non prise en charge.")
-                continue
+            file = None
+            match extension:
+                case "csv":
+                    file = CSVHandler(choice)
+            data = file.read()
             while choice:
                 action_choice = list_actions()
                 match action_choice:
                     case "1":
-                        match extension:
-                            case "csv":
-                                print_csv(choice)
-                            case "json":
-                                print(data)
+                        file.print()
                     case "2":
-                        output_file = input("Quel nom pour le fichier de sortie ? ") + "." + extension
-                        match extension:
-                            case "csv":
-                                save_csv(f"./output/{output_file}", data)
-                            case "json":
-                                save_json_file(f"./output/{output_file}", data)
-                    case "*":
+                        file.save(input("Quelle nom pour le fichier de sortie ?") + ".csv", data)
+                    case _:
                         print("Veuillez choisir un choix dans la liste")
 
         elif choice == "exit":
