@@ -12,13 +12,14 @@ def main():
             if choice.isdigit():
                 choice = file_list[int(choice) - 1]
             extension = choice.split(".")[-1]
-            if extension == "csv":
-                data = read_csv(choice)
-            elif extension == "json":
-                data = load_json_file(f"./files/{choice}")
-            else:
-                print("Extension de fichier non prise en charge.")
-                continue
+           match extension:
+                case "csv":
+                    data = read_csv(choice)
+                case "json":
+                    data = load_json_file(f"./files/{choice}")
+                case _:
+                    print("Extension de fichier non prise en charge.")
+                    continue
             while choice:
                 action_choice = list_actions()
                 match action_choice:
