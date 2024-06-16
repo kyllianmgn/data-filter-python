@@ -2,6 +2,8 @@ from utils.utils import list_files, list_actions
 from csv_manager.csv_handler import CSVHandler
 from json_manager.json_handler import JSONHandler
 
+
+
 def main():
     while True:
         file_list = list_files()
