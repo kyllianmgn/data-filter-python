@@ -1,5 +1,6 @@
 from utils.utils import list_files, list_actions
 from csv_manager.csv_handler import CSVHandler
+from xml_manager.xml_handler import XMLHandler
 
 
 def main():
@@ -14,6 +15,8 @@ def main():
             match extension:
                 case "csv":
                     file = CSVHandler(choice)
+                case "xml":
+                    file = XMLHandler(choice)
             data = file.read()
             while choice:
                 action_choice = list_actions()
@@ -21,7 +24,7 @@ def main():
                     case "1":
                         file.print()
                     case "2":
-                        file.save(input("Quelle nom pour le fichier de sortie ?") + ".csv", data)
+                        file.save(input("Quelle nom pour le fichier de sortie ?") + "."+extension, data)
                     case _:
                         print("Veuillez choisir un choix dans la liste")
 
