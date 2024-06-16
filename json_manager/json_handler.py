@@ -1,42 +1,57 @@
 import json
 import os
 
-def load_json_file(file):
-    """
-    Charger le fichier json
-    :param file: Chemin vers le fichier json
-    :return: JSON Object
-    """
-    with open(f'{file}', 'r') as json_file:
-        json_data = json.load(json_file)
-    return json_data
+class JSONHandler:
 
-def read_json_file(file):
-    """
-    Lire le contenu du fichier json
+        def __init__(self, file):
+            self.file = file
 
-    :param json_data: JSON Object
-    """
-    with open(f'{file}', 'r') as json_file:
-        json_data = json.load(json_file)
-    return json_data
+        def load(self):
+            """
+            Charger le fichier json
+            :param file: Chemin vers le fichier json
+            :return: JSON Object
+            """
+            with open(f'./files/{self.file}', 'r') as json_file:
+                json_data = json.load(json_file)
+            return json_data
 
+        def print(self):
+            """
+            Afficher le contenu du fichier json
 
-def save_json_file(output, data):
-    """
-    Enregistre les données dans un fichier JSON.
+            :param json_data: JSON Object
+            """
+            with open(f'./files/{self.file}', 'r') as json_file:
+                json_data = json.load(json_file)
+                print(json_data)
 
-    Args:
-        output (str): Chemin vers le fichier JSON de destination.
-        data (dict ou list): Les données à enregistrer.
+        def read(self):
+            """
+            Lire le contenu du fichier json
 
-    Raises:
-        IOError: Si une erreur se produit lors de l'écriture du fichier.
-    """
-    try:
-        os.makedirs(os.path.dirname(output), exist_ok=True)
-        with open(output, 'w', encoding='utf-8') as json_file:
-            json.dump(data, json_file, indent=4)
-    except IOError as e:
-        raise IOError(f"Erreur lors de l'écriture du fichier '{output}': {e}")
+            :param json_data: JSON Object
+            """
+            with open(f'./files/{self.file}', 'r') as json_file:
+                json_data = json.load(json_file)
+            return json_data
 
+        def save(self, output, data):
+            """
+            Enregistre les données dans un fichier JSON.
+
+            Args:
+                output (str): Chemin vers le fichier JSON de destination.
+                data (dict ou list): Les données à enregistrer.
+
+            Raises:
+                IOError: Si une erreur se produit lors de l'écriture du fichier.
+            """
+            output_path = f'./output/{output}'
+            try:
+                os.makedirs(os.path.dirname(output_path), exist_ok=True)
+                with open(output_path, 'w', encoding='utf-8') as json_file:
+                    json.dump(data, json_file, indent=4)
+                    print(f"Les données ont été enregistrées dans '{output_path}'")
+            except IOError as e:
+                raise IOError(f"Erreur lors de l'écriture du fichier '{output_path}': {e}")
