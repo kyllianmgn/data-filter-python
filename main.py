@@ -24,7 +24,7 @@ def main():
                         file = XMLHandler(choice)
                 data = file.read()
                 action_choice = None
-                while action_choice != "back":
+                while action_choice != "0":
                     action_choice = list_actions()
                     match action_choice:
                         case "1":
@@ -33,11 +33,11 @@ def main():
                             output_name = input("Quel nom pour le fichier de sortie ? ")
                             file.save(output_name + "." + extension, data)
                             print("Données sauvegardées avec succès.")
-                        case "back":
+                        case "0":
                             print("Retour au menu principal.")
                             break
                         case _:
-                            print("Veuillez choisir un choix dans la liste ou 'back' pour revenir.")
+                            print("Veuillez choisir un choix dans la liste suivante.")
             elif choice == "exit":
                 exit(0)
             else:
