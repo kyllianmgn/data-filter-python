@@ -27,4 +27,5 @@ def list_actions():
     print("\nVeuillez choisir une action dans la liste suivante")
     print("1 - Lire le fichier")
     print("2 - Exportez le fichier")
+    print("0 - Retour")
     return input("")
