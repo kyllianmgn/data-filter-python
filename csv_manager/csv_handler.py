@@ -6,6 +6,7 @@ from file.file_class import File
 class CSVHandler(File):
 
     def __init__(self, file):
+        self.data = None
         self.file = file
 
     def load(self):
@@ -20,9 +21,11 @@ class CSVHandler(File):
         :param csv_reader: CSV Object
         """
         with open(f'./files/{self.file}', 'r') as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter=',')
-            for row in csv_reader:
-                print(row)
+            data = list(csv.reader(csv_file, delimiter=','))
+            for row in data:
+                for column in row:
+                    print(column, end=', ')
+                print('\n')
 
     def read(self):
         """

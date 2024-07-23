@@ -41,14 +41,16 @@ class XMLHandler:
         if self.tree is None:
             self.load()
 
-        data = []
         root = self.tree.getroot()
-        for item in root:
-            row = []
-            for data_element in item:
-                row.append(data_element.text)
-            data.append(row)
-
+        header_columns = set()
+        data = [""]
+        for row in root:
+            dataToAdd = []
+            for column in row:
+                header_columns.add(column.tag)
+                data[0] = list(header_columns)
+                dataToAdd.append(column.text)
+            data.append(dataToAdd)
         return data
 
 
