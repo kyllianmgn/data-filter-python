@@ -30,6 +30,7 @@ def list_actions():
     print("1 - Lire le fichier")
     print("2 - Exportez le fichier")
     print("3 - Trier en fonction d'un champ")
+    print("0 - Retour")
     return input("")
 
 
