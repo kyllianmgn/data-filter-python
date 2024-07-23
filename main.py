@@ -1,4 +1,4 @@
-from utils.utils import list_files, list_actions
+from utils.utils import list_files, list_actions, sort_data_by_value
 from csv_manager.csv_handler import CSVHandler
 from json_manager.json_handler import JSONHandler
 from xml_manager.xml_handler import XMLHandler
@@ -33,6 +33,9 @@ def main():
                             output_name = input("Quel nom pour le fichier de sortie ? ")
                             file.save(output_name + "." + extension, data)
                             print("Données sauvegardées avec succès.")
+                        case "3":
+                            field_number = input("Numéro du champ de tri : ")
+                            file = sort_data_by_value(data, int(field_number))
                         case "back":
                             print("Retour au menu principal.")
                             break
