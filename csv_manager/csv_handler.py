@@ -17,8 +17,6 @@ class CSVHandler(File):
     def print(self):
         """
         Afficher le contenu du fichier csv
-
-        :param csv_reader: CSV Object
         """
         with open(f'./files/{self.file}', 'r') as csv_file:
             data = list(csv.reader(csv_file, delimiter=','))
@@ -30,8 +28,6 @@ class CSVHandler(File):
     def read(self):
         """
         Afficher le contenu du fichier csv
-
-        :param csv_reader: CSV Object
         """
         with open(f'./files/{self.file}', 'r') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')

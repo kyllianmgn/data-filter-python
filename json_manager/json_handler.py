@@ -14,7 +14,6 @@ class JSONHandler(File):
     def load(self):
         """
             Charger le fichier json
-            :param file: Chemin vers le fichier json
             :return: JSON Object
             """
         with open(f'./files/{self.file}', 'r') as json_file:
@@ -24,8 +23,6 @@ class JSONHandler(File):
     def print(self):
         """
             Afficher le contenu du fichier json
-
-            :param json_data: JSON Object
             """
         with open(f'./files/{self.file}', 'r') as json_file:
             json_data = json.load(json_file)
@@ -34,8 +31,6 @@ class JSONHandler(File):
     def read(self):
         """
             Lire le contenu du fichier json
-
-            :param json_data: JSON Object
             """
         with open(f'./files/{self.file}', 'r') as json_file:
             json_data = json.load(json_file)
@@ -76,4 +71,3 @@ class JSONHandler(File):
                 print(f"Les données ont été enregistrées dans '{output_path}'")
         except IOError as e:
             raise IOError(f"Erreur lors de l'écriture du fichier '{output_path}': {e}")
-

@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import os
 
+
 class XMLHandler:
     def __init__(self, file):
         self.file = file
@@ -45,12 +46,10 @@ class XMLHandler:
         header_columns = set()
         data = [""]
         for row in root:
-            dataToAdd = []
+            data_to_add = []
             for column in row:
                 header_columns.add(column.tag)
                 data[0] = list(header_columns)
-                dataToAdd.append(column.text)
-            data.append(dataToAdd)
+                data_to_add.append(column.text)
+            data.append(data_to_add)
         return data
-
-

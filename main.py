@@ -1,10 +1,12 @@
 from csv_manager.csv_convertor import convert_to_csv
 from json_manager.json_convertor import convert_to_json
-from utils.utils import list_files, list_actions, sort_data_by_value, print_data, get_statistics, statistics_actions, \
-    print_statistics, process_filtering
 from csv_manager.csv_handler import CSVHandler
 from json_manager.json_handler import JSONHandler
 from utils.fields import manage_field
+from utils.filter import process_filtering
+from utils.sort import sort_data_by_value
+from utils.stats import get_statistics, statistics_actions, print_statistics
+from utils.utils import list_files, list_actions, print_data
 from xml_manager.xml_handler import XMLHandler
 
 
