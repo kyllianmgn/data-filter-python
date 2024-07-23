@@ -1,5 +1,7 @@
 import os
 
+from operator import itemgetter
+
 
 def list_files():
     """
@@ -27,4 +29,15 @@ def list_actions():
     print("\nVeuillez choisir une action dans la liste suivante")
     print("1 - Lire le fichier")
     print("2 - Exportez le fichier")
+    print("3 - Trier en fonction d'un champ")
     return input("")
+
+
+def sort_data_by_value(data, field_number):
+    """
+    Trie les données par les valeurs du champ
+
+    :return: Les données triées par les valeurs du champ
+    :rtype: data
+    """
+    return sorted(data, key=itemgetter(field_number))
