@@ -10,6 +10,7 @@
     "firstname": "Jane",
     "lastname": "Smith",
     "age": 22,
+    "test": "Je",
     "apprentice": false,
     "grades": [91, 87, 95, 88]
   },
